@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            gap: 20px;
+        }
+
+        .dropdown {
+            background-color: #222;
+            padding: 10px;
+            border-radius: 5px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .dropdown-button {
+            cursor: pointer;
+            font-size: 18px;
+            padding: 12px;
+            background-color: #444;
+            border-radius: 5px;
+            list-style: none;
+            position: relative;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-button::before {
+            content: "▶";
+            margin-right: 10px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 1s ease, opacity 0.3s ease;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown.open .dropdown-content {
+            opacity: 1;
+            max-height: 300px;
+        }
+
+        .dropdown.open .dropdown-button::before {
+            transform: rotate(90deg);
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-size: 16px;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+
+        .dropdown-button {
+            background-color: #444;
+        }
+
+        .dropdown-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dropdown">
+        <div class="dropdown-button" onclick="toggleDropdown(this)">JavaScript</div>
+        <div class="dropdown-content">
+            <ul>
+                <li><a href="https://developer.mozilla.org/pl/docs/Web/JavaScript">MDN JavaScript</a></li>
+                <li><a href="https://www.w3schools.com/js/">W3Schools JavaScript</a></li>
+                <li><a href="https://javascript.info/">JavaScript.info</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-button" onclick="toggleDropdown(this)">CSS</div>
+        <div class="dropdown-content">
+            <ul>
+                <li><a href="https://developer.mozilla.org/pl/docs/Web/CSS">MDN CSS</a></li>
+                <li><a href="https://www.w3schools.com/css/">W3Schools CSS</a></li>
+                <li><a href="https://css-tricks.com/">CSS-Tricks</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-button" onclick="toggleDropdown(this)">HTML</div>
+        <div class="dropdown-content">
+            <ul>
+                <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML">MDN HTML</a></li>
+                <li><a href="https://www.w3schools.com/html/">W3Schools HTML</a></li>
+                <li><a href="https://html.com/">HTML.com</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-button" onclick="toggleDropdown(this)">React</div>
+        <div class="dropdown-content">
+            <ul>
+                <li><a href="https://reactjs.org/">React Official</a></li>
+                <li><a href="https://reactjs.org/docs/getting-started.html">React Docs</a></li>
+                <li><a href="https://www.freecodecamp.org/news/learn-react-in-1-hour-2/">FreeCodeCamp React</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-button" onclick="toggleDropdown(this)">Python</div>
+        <div class="dropdown-content">
+            <ul>
+                <li><a href="https://www.python.org/doc/">Python Documentation</a></li>
+                <li><a href="https://www.w3schools.com/python/">W3Schools Python</a></li>
+                <li><a href="https://realpython.com/">Real Python</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(button) {
+            let dropdown = button.parentElement;
+            dropdown.classList.toggle("open");
+        }
+    </script>
+
+</body>
+</html>
